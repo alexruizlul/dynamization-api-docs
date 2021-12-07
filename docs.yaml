@@ -1,0 +1,606 @@
+swagger: '2.0'
+info:
+  description: Webmaker for creating professional websites.
+  version: 1.0.0
+  title: Dynamization
+host: master-dynamization.com
+basePath: /api
+tags:
+  - name: webpage
+    description: Operations on Webpage resources
+  - name: templates
+    description: Operations on Template resources and it's subresources
+  - name: blog
+    description: Operations on Blog resources and it's subresources
+  - name: tag
+    description: Operations on Tag resources
+schemes:
+  - http
+paths:
+  /templates:
+    get:
+      tags:
+        - templates
+      summary: Retrieves collection of Template resources
+      description: Retrieves collection of Template resources
+      operationId: listTemplates
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+    post:
+      tags:
+        - templates
+      summary: Creates a Template resource
+      description: Creates a Template resource
+      operationId: createTemplate
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+  /templates/{id}:
+    get:
+      tags:
+        - templates
+      summary: Retrieves a Template resource with a given ID
+      description: Retrieves collection of Template resources
+      operationId: listTemplate
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+    patch:
+      tags:
+        - templates
+      summary: Update Template resource with new content/components, given an ID
+      description: Crea un usuario en nuestra app
+      operationId: createUser
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Template updated
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        default:
+          description: successful operation
+    delete:
+      tags:
+        - templates
+      summary: Delete Template resource with given ID
+      description: Crea un usuario en nuestra app
+      operationId: deleteeUser
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Template deleted
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        default:
+          description: successful operation
+  /templates/{id}/components:
+    get:
+      tags:
+        - templates
+      summary: Retrieves collection of Component resources of a Template
+      description: Retrieves collection of Component resources of a Template
+      operationId: listComponents
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+    post:
+      tags:
+        - templates
+      summary: Creates a Component resource in the Template resource with given ID
+      description: Creates a Component resource in the Template resource with given ID
+      operationId: createComponent
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+  /templates/{id}/components/{component_id}:
+    get:
+      tags:
+        - templates
+      summary: Retrieves single Component resource of a Template with given IDs
+      description: Retrieves single Component resource of a Template with given IDs
+      operationId: listComponentOfTemplate
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+    patch:
+      tags:
+        - templates
+      summary: Update single Component resource of a Template with given IDs
+      description: Update single Component resource of a Template with given IDs
+      operationId: updateComponentOfTemplate
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Component updated
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        default:
+          description: successful operation
+    delete:
+      tags:
+        - templates
+      summary: Delete single Component resource of a Template with given IDs
+      description: Delete single Component resource of a Template with given IDs
+      operationId: deleteComponentOfTemplate
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Component deleted
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        default:
+          description: successful operation
+  /blogs:
+    get:
+      tags:
+        - blog
+      summary: Retrieves collection of Blog resources
+      description: Retrieves collection of Blog resources
+      operationId: listBlogs
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+    post:
+      tags:
+        - blog
+      summary: Creates a Blog resource
+      description: Creates a Blog resource
+      operationId: createBlog
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+  /blogs/{id}:
+    get:
+      tags:
+        - blog
+      summary: Retrieves single Blog resource with given ID
+      description: Retrieves single Blog resource with given ID
+      operationId: listBlog
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+    patch:
+      tags:
+        - blog
+      summary: Update Blog resource with given ID
+      description: Update Blog resource with given ID
+      operationId: updateBlog
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Blog updated
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        default:
+          description: successful operation
+    delete:
+      tags:
+        - blog
+      summary: Delete Blog resource with given ID
+      description: Delete Blog resource with given ID
+      operationId: deleteBlog
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Blog deleted
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        default:
+          description: successful operation
+  /blogs/{id}/comments:
+    get:
+      tags:
+        - blog
+      summary: Retrieves collection of Comment resources of the Blog with given ID
+      description: Retrieves collection of Comment resources of the Blog with given ID
+      operationId: listComments
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+    post:
+      tags:
+        - blog
+      summary: Creates a Comment resource in the Blog resource with given ID
+      description: Creates a Comment resource in the Blog resource with given ID
+      operationId: createComment
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+  /blogs/{id}/comments/{comment_id}:
+    get:
+      tags:
+        - blog
+      summary: Retrieves single Comment resource of a Blog with given IDs
+      description: Retrieves single Comment resource of a Blog with given IDs
+      operationId: listCommentOfBlog
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+    patch:
+      tags:
+        - blog
+      summary: Update single Comment resource of a Blog with given IDs
+      description: Update single Comment resource of a Blog with given IDs
+      operationId: updateCommentOfBlog
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Comment updated
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        default:
+          description: successful operation
+    delete:
+      tags:
+        - blog
+      summary: Delete single Comment resource of a Blog with given IDs
+      description: Delete single Comment resource of a Blog with given IDs
+      operationId: deleteCommentOfBlog
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Comment deleted
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        default:
+          description: successful operation
+  /blogs/{id}/tags:
+    get:
+      tags:
+        - blog
+      summary: Retrieves collection of Tag resources of the Blog with given ID
+      description: Retrieves collection of Tag resources of the Blog with given ID
+      operationId: listTags
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+    post:
+      tags:
+        - blog
+      summary: Creates a Tag resource in the Blog resource with given ID
+      description: Creates a Tag resource in the Blog resource with given ID
+      operationId: createTag
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+  /blogs/{id}/tags/{tag_id}:
+    delete:
+      tags:
+        - blog
+      summary: Delete single Tag resource of a Blog with given IDs
+      description: Delete single Tag resource of a Blog with given IDs
+      operationId: deleteTagOfBlog
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Tag deleted
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        default:
+          description: successful operation
+  /tags:
+    get:
+      tags:
+        - tag
+      summary: Retrieves collection of Tag resources
+      description: Retrieves collection of Tag resources
+      operationId: listTags
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+    post:
+      tags:
+        - tag
+      summary: Creates a Tag resource
+      description: Creates a Tag resource
+      operationId: createTag
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+  /tags/{id}:
+    get:
+      tags:
+        - tag
+      summary: Retrieves a Tag resource with given ID
+      description: Retrieves a Tag resource with given ID
+      operationId: listTag
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+    patch:
+      tags:
+        - tag
+      summary: Update Tag resource with given ID
+      description: Update Tag resource with given ID
+      operationId: createsTag
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Tag updated
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        default:
+          description: successful operation
+    delete:
+      tags:
+        - tag
+      summary: Delete Tag resource with given ID
+      description: Delete Tag resource with given ID
+      operationId: deleteTag
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Tag deleted
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        default:
+          description: successful operation
+  /tags/{id}/blogs:
+    get:
+      tags:
+        - tag
+      summary: Retrieves collection of Blog resources of the Tag with given ID
+      description: Retrieves collection of Blog resources of the Tag with given ID
+      operationId: listBlogsOfTag
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+  /webpages:
+    get:
+      tags:
+        - webpage
+      summary: Retrieves collection of Webpages resources
+      description: Retrieves collection of Webpages resources
+      operationId: listWebpages
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+    post:
+      tags:
+        - webpage
+      summary: Creates a Webpage resource
+      description: Creates a Webpage resource
+      operationId: createWebpage
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+  /webpages/{id}:
+    get:
+      tags:
+        - webpage
+      summary: Retrieves a Webpage resource with a given ID
+      description: Retrieves a Webpage resource with a given ID
+      operationId: listWebpage
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+    patch:
+      tags:
+        - webpage
+      summary: Update Webpage resource with given ID
+      description: Update Webpage resource with given ID
+      operationId: updateWebpage
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Webpage updated
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        default:
+          description: successful operation
+    delete:
+      tags:
+        - webpage
+      summary: Delete Webpage resource with given ID
+      description: Delete Webpage resource with given ID
+      operationId: deleteWebpage
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Webpage deleted
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        default:
+          description: successful operation
+securityDefinitions:
+  petstore_auth:
+    type: oauth2
+    authorizationUrl: http://petstore.swagger.io/oauth/dialog
+    flow: implicit
+    scopes:
+      write:pets: modify pets in your account
+      read:pets: read your pets
+  api_key:
+    type: apiKey
+    name: api_key
+    in: header
+definitions:
+  Template:
+    type: object
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      colors:
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+            color:
+              type: string
+      fonts:
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+            font:
+              type: string
+      container:
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+            min-height:
+              type: string
+            flex_parent:
+              type: object
+              properties:
+                align-items:
+                  type: string
+                flex-wrap:
+                  type: string
+                align-content:
+                  type: string
+                justify-content:
+                  type: string
+                flex-direction:
+                  type: string
+                order:
+                  type: number
+            flex_child:
+              type: object
+              properties:
+                order:
+                  type: number
+            block:
+              type: array
+              items:
+                type: object
+                properties:
+                  flex_child:
+                    type: object
+                    properties:
+                      order:
+                        type: number
+                      flex-grow:
+                        type: number
+                      flex-shrink:
+                        type: number
+                      flex-basis:
+                        type: string
+                      align-self:
+                        type: string
+                  component:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                        url:
+                          type: string
+  ApiResponse:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      type:
+        type: string
+      message:
+        type: string
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
